@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Amadon Shop</title>
+        <style>
+            input[type="number"]{
+                width:50px;
+            }
+        </style>
+    </head>
+    <body>
+        {% if count != 0 %}
+            <h3>Items in cart: {{count}}</h3>
+        {% endif %}
+        <table>
+            <thead>
+                <td>Item</td>
+                <td>Price</td>
+                <td>Qty</td>
+            </thead>
+            <tr>
+                <td>Iphone</td>
+                <td>$500.00</td>
+                <td>
+                    <form action='/cart' method='post'>
+                        {% csrf_token %}
+                        <input type="number" min="0" name="quantity" value="0">
+                        <input type='hidden' name='price' value='500.00' />
+                        <input type='hidden' name='name' value='Iphone' />
+                        <input type='submit' value='Buy!' />
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Macbook Air</td>
+                <td>$1000.00</td>
+                <td>
+                    <form action='/cart' method='post'>
+                        {% csrf_token %}
+                        <input type="number" min="0" name="quantity" value="0">
+                        <input type='hidden' name='price' value='1000.00' />
+                        <input type='hidden' name='name' value='Macbook Air' />
+                        <input type='submit' value='Buy!' />
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Headphone</td>
+                <td>$20.00</td>
+                <td>
+                    <form action='/cart' method='post'>
+                        {% csrf_token %}
+                        <input type="number" min="0" name="quantity" value="0">
+                        <input type='hidden' name='price' value='20.00'/>
+                        <input type='hidden' name='name' value='Headphones' />
+                        <input type='submit' value='Buy!'/>
+                    </form>
+                </td>
+            </tr>
+        </table> 
+        <a href='/checkout'><button style="height:50px; width:300px">Checkout!</button></a>
+    </body>
+</html>

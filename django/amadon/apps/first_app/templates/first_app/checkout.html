@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Checkout</title>
+    </head>
+    
+    <body>
+        {% if message %}
+            <h1>{{message}}</h1>
+            <a href='/restart'><button style="height:50px; width:300px">Add items to cart</button></a>
+        {% else %}
+            <h1>Your total is: ${{total}}</h1>
+            <h1 style="text-decoration: underline">Items</h1>
+            <ul>
+                {%for item in items %}
+                    <li>{{item}}</li>
+                {%endfor%}
+            </ul>
+            <a href='/restart'><button style="height:50px; width:300px">Restart Shopping Experiance</button></a>
+        {%endif%}
+    </body>
+</html>
