@@ -1,0 +1,19 @@
+<h2>Add a new user</h2>
+<style>
+    input{
+        display:block
+    }
+</style>
+<form action="/adduser" method="post">
+    {% csrf_token %}
+    <label>First Name</label>
+    <input type="text" name="firstname">
+
+    <label>Last Name</label>
+    <input type="text" name="lastname">
+
+    <label>Email</label>
+    <input type="email" name="email">
+
+    <input type="submit" value="Add User">
+</form>
